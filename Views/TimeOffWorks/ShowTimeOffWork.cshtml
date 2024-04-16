@@ -1,0 +1,49 @@
+﻿@model IEnumerable<EmployeePortal.Models.TimeOffWork>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeOffWorkType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee.EmployeeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeOffWorkType)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.TimeOffWorkId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.TimeOffWorkId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.TimeOffWorkId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
